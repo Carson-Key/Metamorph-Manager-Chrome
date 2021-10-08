@@ -6,7 +6,9 @@ if (regex.test(url)) {
         let tempObj = {}
         const characterSheet = $("span:contains('Metamorph')")
         Array.from(characterSheet).forEach(element => {
-            console.log(element.innerHTML.split("\n"))
+            const splitDesc = element.innerHTML.split("\n")
+            const statBoosts = splitDesc.filter(line => line.includes('Increased'))
+            console.log(statBoosts)
         });
     }, 1000)
 } else {
