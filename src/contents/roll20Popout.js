@@ -1,11 +1,11 @@
-import { getMorphPowers, parsePowerDescription } from '../helpers/roll20Popout.js'
+import { getMorphPowers, getMorphData } from '../helpers/roll20Popout.js'
 
 export const roll20Popout = () => {
     setTimeout(() => {
         let statsIncrease = {}
         const morphPowersArray = getMorphPowers()
         morphPowersArray.forEach(morph => {
-            const parsedPower = parsePowerDescription(morph)
+            const parsedPower = getMorphData(morph)
             let metaIncrease = {}
             parsedPower.stats.forEach((statLine) => {
                 const statString = statLine.split(" ")
