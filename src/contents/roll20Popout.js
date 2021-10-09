@@ -1,4 +1,4 @@
-import { getMorphPowers, getMorphData } from '../helpers/roll20Popout.js'
+import { getMorphPowers, getMorphData, getStatIncreaseData } from '../helpers/roll20Popout.js'
 
 export const roll20Popout = () => {
     setTimeout(() => {
@@ -6,12 +6,11 @@ export const roll20Popout = () => {
         const morphPowersArray = getMorphPowers()
         morphPowersArray.forEach(morph => {
             const morphData = getMorphData(morph)
-            let metaIncrease = {}
-            morphData.stats.forEach((statLine) => {
-                const statString = statLine.split(" ")
-                metaIncrease[statString[2]] = parseInt(statString[3])
+            let statIncreaseData = {}
+            morphData.stats.forEach((statIncreaseLine) => {
+                getStatIncreaseData(statIncreaseLine, statIncreaseData)
             })
-            statsIncrease[morphData.name] = metaIncrease
+            statsIncrease[morphData.name] = statIncreaseData
         });
         console.log(statsIncrease)
     }, 3000)

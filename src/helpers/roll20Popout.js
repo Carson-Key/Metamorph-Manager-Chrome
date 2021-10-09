@@ -13,3 +13,7 @@ export const getMorphData = (morph) => {
         stats: statBoosts
     }
 }
+export const getStatIncreaseData = (statIncreaseLine, statIncreaseData) => {
+    const statIncreaseArray = statIncreaseLine.split(" ")
+    statIncreaseData[statIncreaseArray[2]] = parseInt(statIncreaseArray[3])
+}
