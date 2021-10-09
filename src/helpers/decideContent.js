@@ -6,9 +6,15 @@ const testRunContent = (url, content) => {
         breakContentLoop = 1;
     }
 }
+const notSupportedURL = () => {
+    if (breakContentLoop === 0) {
+        console.log("This is not a supported page");
+    }
+}
 
 export const decideContent = (url, contentList) => {
     contentList.forEach((content) => {
         testRunContent(url, content);
     });
+    notSupportedURL();
 }
