@@ -1,16 +1,17 @@
 {
-    "name": "Metamorph Extension",
-    "description": "A Chrome extension used to manage the M&M metamorph power in Roll20",
-    "version": "0.1",
-    "manifest_version": 3,
-    "permissions": [
+	"name": "Metamorph Extension",
+	"description": "A Chrome extension used to manage the M&M metamorph power in Roll20",
+	"version": "0.1",
+	"manifest_version": 3,
+	"permissions": [
 		"activeTab",
-        "tabs"
+		"tabs"
 	],
-    "content_scripts": [
-        {
-          "matches": ["https://*.roll20.net/*"],
-          "js": ["libs/jquery.min.js", "index.js"]
-        }
-    ]
-  }
+	"content_scripts": [
+		{
+			"matches": ["https://*.roll20.net/*"],
+			"js": ["libs/jquery.min.js", "index.js"]
+		}
+	],
+	"minimum_chrome_version": "92"
+}
