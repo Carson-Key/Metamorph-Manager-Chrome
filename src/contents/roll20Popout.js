@@ -15,5 +15,5 @@ export const roll20Popout = () => {
             statsIncrease[metaName] = metaIncrease
         });
         console.log(statsIncrease)
-    }, 1000)
+    }, 3000)
 }
