@@ -3,8 +3,8 @@ import { getMorphPowers } from '../helpers/roll20Popout.js'
 export const roll20Popout = () => {
     setTimeout(() => {
         let statsIncrease = {}
-        const characterSheet = getMorphPowers()
-        characterSheet.forEach(element => {
+        const morphPowersArray = getMorphPowers()
+        morphPowersArray.forEach(element => {
             const splitDesc = element.innerHTML.split("\n")
             const splitName = splitDesc[0].split(" ")
             const metaName = splitName[2]
