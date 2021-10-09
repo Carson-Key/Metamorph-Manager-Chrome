@@ -13,5 +13,11 @@
 			"js": ["libs/jquery.min.js", "index.js"]
 		}
 	],
+	"web_accessible_resources": [
+		{
+			"resources": ["src/*"],
+			"matches": [ "https://*.roll20.net/*" ]
+		}
+	],
 	"minimum_chrome_version": "92"
 }
