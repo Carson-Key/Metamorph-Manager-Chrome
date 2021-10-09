@@ -4,7 +4,7 @@ export const roll20Popout = () => {
     setTimeout(() => {
         let statsIncrease = {}
         const characterSheet = getMorphPowers()
-        Array.from(characterSheet).forEach(element => {
+        characterSheet.forEach(element => {
             const splitDesc = element.innerHTML.split("\n")
             const splitName = splitDesc[0].split(" ")
             const metaName = splitName[2]

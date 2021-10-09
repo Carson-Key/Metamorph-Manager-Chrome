@@ -1,3 +1,5 @@
+import { convertHTMLCollectionToArray } from './basic.js'
+
 export const getMorphPowers = () => {
-    return $("span:contains('Metamorph')")
+    return convertHTMLCollectionToArray($("span:contains('Metamorph')"))
 }
