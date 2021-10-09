@@ -6,14 +6,14 @@ const getMorphData = (morph) => {
     const statBoosts = splitDesc.filter(line => line.includes('Increased'))
 
     return {
-        name: morphName,
+        name: morphName.toLowerCase(),
         stats: statBoosts
     }
 }
 const getStatIncreaseData = (statIncreaseLine, statIncreaseData) => {
     const statIncreaseArray = statIncreaseLine.split(" ")
 
-    statIncreaseData[statIncreaseArray[2]] = parseInt(statIncreaseArray[3])
+    statIncreaseData[statIncreaseArray[2].toLowerCase()] = parseInt(statIncreaseArray[3])
 }
 const parseStatIncrease = (morphData) => {
     let statIncreaseData = {}
