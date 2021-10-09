@@ -1,5 +1,5 @@
 
-const config = { attributes: true, childList: true, subtree: true };
+const MUTATIONOBSERVERCONFIG = { attributes: true, childList: true, subtree: true };
 
 export const convertHTMLCollectionToArray = (htmlCollection) => {
     return Array.from(htmlCollection);
@@ -11,7 +11,7 @@ export const waitForMutation = (htmlObject, functionOnMutation) => {
     };
     
     const observer = new MutationObserver(callback);
-    observer.observe(htmlObject, config);
+    observer.observe(htmlObject, MUTATIONOBSERVERCONFIG);
 
     setTimeout(() => {
         observer.disconnect();
