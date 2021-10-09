@@ -35,8 +35,9 @@ export const parseMetaMorph = (morphPowersArray) => {
     morphPowersArray.forEach(morph => {
         const morphData = getMorphData(morph)
         const statIncreaseData = parseStatIncrease(morphData)
+        
         metaMorph[morphData.name] = statIncreaseData
     });
-    
+
     return metaMorph;
 }
