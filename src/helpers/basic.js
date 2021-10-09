@@ -6,10 +6,8 @@ export const convertHTMLCollectionToArray = (htmlCollection) => {
 }
 export const waitForMutation = (htmlObject, functionOnMutation) => {
     const callback = (mutationsList, observer) => {
-        mutationsList.forEach((mutation) => {
-            functionOnMutation();
-            observer.disconnect();
-        });
+        functionOnMutation();
+        observer.disconnect();
     };
     
     const observer = new MutationObserver(callback);
