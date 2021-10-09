@@ -5,8 +5,7 @@ export const getMorphPowers = () => {
 }
 export const parsePowerDescription = (morph) => {
     const splitDesc = morph.innerHTML.split("\n")
-    const splitName = splitDesc[0].split(" ")
-    const metaName = splitName[2]
+    const metaName = splitDesc[0].split(" ")[2]
     const statBoosts = splitDesc.filter(line => line.includes('Increased'))
 
     return {
