@@ -10,7 +10,7 @@
     "content_scripts": [
         {
           "matches": ["https://*.roll20.net/*"],
-          "js": ["jquery.min.js", "index.js"]
+          "js": ["libs/jquery.min.js", "index.js"]
         }
     ]
   }
