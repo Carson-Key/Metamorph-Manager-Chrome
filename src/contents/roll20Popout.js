@@ -1,7 +1,9 @@
+import { getMorphPowers } from '../helpers/roll20Popout.js'
+
 export const roll20Popout = () => {
     setTimeout(() => {
         let statsIncrease = {}
-        const characterSheet = $("span:contains('Metamorph')")
+        const characterSheet = getMorphPowers()
         Array.from(characterSheet).forEach(element => {
             const splitDesc = element.innerHTML.split("\n")
             const splitName = splitDesc[0].split(" ")
