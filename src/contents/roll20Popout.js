@@ -1,7 +1,4 @@
-import { 
-    getMorphPowers, getMorphData, getStatIncreaseData, 
-    parseMetaMorph
- } from '../helpers/roll20Popout.js'
+import { getMorphPowers, parseMetaMorph } from '../helpers/roll20Popout.js'
 
 export const roll20Popout = () => {
     setTimeout(() => {
