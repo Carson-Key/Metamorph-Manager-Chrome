@@ -17,3 +17,16 @@ export const getStatIncreaseData = (statIncreaseLine, statIncreaseData) => {
     const statIncreaseArray = statIncreaseLine.split(" ")
     statIncreaseData[statIncreaseArray[2]] = parseInt(statIncreaseArray[3])
 }
+
+export const parseMetaMorph = (morphPowersArray) => {
+    let metaMorph = {}
+    morphPowersArray.forEach(morph => {
+        const morphData = getMorphData(morph)
+        let statIncreaseData = {}
+        morphData.stats.forEach((statIncreaseLine) => {
+            getStatIncreaseData(statIncreaseLine, statIncreaseData)
+        })
+        metaMorph[morphData.name] = statIncreaseData
+    });
+    return metaMorph;
+}
