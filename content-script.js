@@ -3,13 +3,21 @@ const regex = new RegExp("https://app.roll20.net/editor/character/*");
 
 if (regex.test(url)) {
     setTimeout(() => {
-        let tempObj = {}
+        let statsIncrease = {}
         const characterSheet = $("span:contains('Metamorph')")
         Array.from(characterSheet).forEach(element => {
             const splitDesc = element.innerHTML.split("\n")
+            const splitName = splitDesc[0].split(" ")
+            const metaName = splitName[2]
             const statBoosts = splitDesc.filter(line => line.includes('Increased'))
-            console.log(statBoosts)
+            let metaIncrease = {}
+            statBoosts.forEach((statLine) => {
+                const statString = statLine.split(" ")
+                metaIncrease[statString[2]] = parseInt(statString[3])
+            })
+            statsIncrease[metaName] = metaIncrease
         });
+        console.log(statsIncrease)
     }, 1000)
 } else {
     console.log("This is not a Roll20 character popout")
