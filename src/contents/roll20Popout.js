@@ -4,6 +4,7 @@ export const roll20Popout = () => {
     setTimeout(() => {
         const morphPowersArray = getMorphPowers()
         const metaMorph = parseMetaMorph(morphPowersArray)
+        
         console.log(metaMorph)
     }, 3000)
 }
