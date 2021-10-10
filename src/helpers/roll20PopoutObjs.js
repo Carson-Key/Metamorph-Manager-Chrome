@@ -12,7 +12,6 @@ export const STATLIST = {
     fortitude: 0,
     toughness: 0,
     will: 0,
-    initiave: 0,
     acrobatics: 0,
     athletics: 0,
     deception: 0,

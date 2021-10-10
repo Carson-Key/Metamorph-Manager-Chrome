@@ -57,7 +57,7 @@ export const changeCharacterSheet = (metaMorphData) => {
     metaMorphDataArray.forEach((statName) => {
         try {
             $("input[name*='" + STATHTMLNAMES[statName] + "']").click();
-            $("input[name*='" + STATHTMLNAMES[statName] + "']").val(metaMorphData[statName]);
+            $("input[name*='" + STATHTMLNAMES[statName] + "']").val(metaMorphData[statName].toString());
             $("input[name*='" + STATHTMLNAMES[statName] + "']").blur();
         } catch (error) {
             console.log(error)
