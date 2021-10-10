@@ -45,16 +45,21 @@ const changeStat = (statHTMLName, statValue) => {
         HTMLPARSINGVALUES.changeStat.statQuery(statHTMLName)
     ).blur();
 }
+const ifValueNeedsChange = (statHTMLName, statValue) => {
+    return (
+        $(HTMLPARSINGVALUES.changeStat.statQuery(statHTMLName)).val() !== statValue
+    )
+}
 
 const changeCharacterSheet = (metaMorphData) => {
     $(HTMLPARSINGVALUES.changeCharacterSheet.characterSheetQuery)[0].click()
     const metaMorphDataArray = Object.keys(metaMorphData);
     metaMorphDataArray.forEach((statName) => {
         try {
-            if (
-                $(HTMLPARSINGVALUES.changeStat.statQuery(STATHTMLNAMES[statName])).val() 
-                !== metaMorphData[statName].toString()
-            ) {
+            if (ifValueNeedsChange(
+                STATHTMLNAMES[statName], 
+                metaMorphData[statName].toString()
+            )) {
                 changeStat(STATHTMLNAMES[statName], metaMorphData[statName].toString())
             }
         } catch (error) {
