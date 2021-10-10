@@ -68,6 +68,10 @@ export const HTMLPARSINGVALUES = {
         nameIndex: 2,
         valueIndex: 3
     },
+    decideIfMetaMorph: {
+        logMsg: "This character does not have any metamorph",
+        returnValue: {}
+    },
     getMetaMorph: "span:contains('Metamorph')",
     changeCharacterSheet: {
         characterSheetQuery: "a[data-tab='charsheet']",

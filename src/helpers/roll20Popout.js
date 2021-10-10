@@ -38,8 +38,8 @@ export const decideIfMetaMorph = (morphPowers, parse) => {
     if (morphPowers.length > 0) {
         return parse(morphPowers)
     } else {
-        console.log("This character does not have any metamorph")
-        return {}
+        console.log(HTMLPARSINGVALUES.decideIfMetaMorph.logMsg)
+        return HTMLPARSINGVALUES.decideIfMetaMorph.returnValue
     }
 }
 
