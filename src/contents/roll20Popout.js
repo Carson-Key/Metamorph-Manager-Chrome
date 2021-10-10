@@ -1,4 +1,4 @@
-import { getMorphPowers, parseMetaMorph, decideIfMetaMorph } from '../helpers/roll20Popout.js'
+import { getMorphPowers, parseMetaMorph, decideIfMetaMorph, changeCharacterSheet } from '../helpers/roll20Popout.js'
 import { waitForMutation } from '../helpers/basic.js'
 
 const generateMetaMorphData = () => {
@@ -18,6 +18,9 @@ const createMorphMenu = () => {
     metaMorphDataArray.forEach((metaMorph) => {
         let button = document.createElement('button');
         button.innerHTML = metaMorph;
+        button.onclick = () => {
+            changeCharacterSheet(metaMorphData[metaMorph])
+        }
         tabMenu.appendChild(button);
     })
 }

@@ -50,9 +50,16 @@ export const parseMetaMorph = (morphPowersArray) => {
     return metaMorph;
 }
 
-export const changeCharacterSheet = () => {
+export const changeCharacterSheet = (metaMorphData) => {
     $("a[data-tab='charsheet']")[0].click()
-    $("input[name*='attr_strength-misc']").click();
-    $("input[name*='attr_strength-misc']").val(2);
-    $("input[name*='attr_strength-misc']").blur();
+    const metaMorphDataArray = Object.keys(metaMorphData);
+    metaMorphDataArray.forEach((statName) => {
+        try {
+            $("input[name*='attr_" + statName + "-misc']").click();
+            $("input[name*='" + statName + "-misc']").val(metaMorphData[statName]);
+            $("input[name*='" + statName + "-misc']").blur();
+        } catch (error) {
+            console.log(error)
+        }
+    })
 }
