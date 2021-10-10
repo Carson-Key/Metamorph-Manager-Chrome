@@ -49,3 +49,10 @@ export const parseMetaMorph = (morphPowersArray) => {
 
     return metaMorph;
 }
+
+export const changeCharacterSheet = () => {
+    $("a[data-tab='charsheet']")[0].click()
+    $("input[name*='attr_strength-misc']").click();
+    $("input[name*='attr_strength-misc']").val(2);
+    $("input[name*='attr_strength-misc']").blur();
+}
