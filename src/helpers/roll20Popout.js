@@ -84,3 +84,11 @@ export const changeCharacterSheet = (metaMorphData) => {
         }
     })
 }
+
+export const checkIfCompatibleCharacter = (metaMorphData) => {
+    if (metaMorphData !== HTMLPARSINGVALUES.decideIfMetaMorph.returnValue) {
+        return true
+    } else {
+        return false
+    }
+}
