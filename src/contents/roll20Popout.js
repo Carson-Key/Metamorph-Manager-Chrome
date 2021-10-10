@@ -4,7 +4,8 @@ import {
     decideIfMetaMorph, 
     changeCharacterSheet,
     checkIfCompatibleCharacter,
-    createDividerButton
+    createDividerButton,
+    createMetaMorphButton
 } from '../helpers/roll20Popout.js'
 import { waitForMutation } from '../helpers/basic.js'
 
@@ -16,16 +17,11 @@ const main = () => {
     const metaMorphData = generateMetaMorphData()
 
     if (checkIfCompatibleCharacter(metaMorphData)) {
-        createDividerButton()
+        let tabMenu = createDividerButton()
     
         const metaMorphDataArray = Object.keys(metaMorphData);
         metaMorphDataArray.forEach((metaMorph) => {
-            let button = document.createElement('button');
-            button.innerHTML = metaMorph;
-            button.onclick = () => {
-                changeCharacterSheet(metaMorphData[metaMorph])
-            }
-            tabMenu.appendChild(button);
+            createMetaMorphButton(metaMorphData, metaMorph, tabMenu)
         })
     }
 }

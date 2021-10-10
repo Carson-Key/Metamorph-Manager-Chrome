@@ -99,4 +99,14 @@ export const createDividerButton = () => {
     button.innerHTML = "|";
     button.disabled = true;
     tabMenu.appendChild(button);
+
+    return tabMenu
+}
+export const createMetaMorphButton = (metaMorphData, metaMorph, tabMenu) => {
+    let button = document.createElement('button');
+    button.innerHTML = metaMorph;
+    button.onclick = () => {
+        changeCharacterSheet(metaMorphData[metaMorph])
+    }
+    tabMenu.appendChild(button);
 }
