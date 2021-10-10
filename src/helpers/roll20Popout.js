@@ -54,6 +54,9 @@ const ifValueNeedsChange = (statHTMLName, statValue) => {
 const changeCharacterSheet = (metaMorphData) => {
     $(HTMLPARSINGVALUES.changeCharacterSheet.characterSheetQuery)[0].click()
     const metaMorphDataArray = Object.keys(metaMorphData);
+    const currentScrollPosition = $(
+        HTMLPARSINGVALUES.changeCharacterSheet.scrollingElement
+    ).scrollTop()
     metaMorphDataArray.forEach((statName) => {
         try {
             if (ifValueNeedsChange(
@@ -66,6 +69,9 @@ const changeCharacterSheet = (metaMorphData) => {
             console.log(error)
         }
     })
+    $(
+        HTMLPARSINGVALUES.changeCharacterSheet.scrollingElement
+    ).scrollTop(currentScrollPosition)
 }
 
 export const decideIfMetaMorph = (morphPowers, parse) => {
