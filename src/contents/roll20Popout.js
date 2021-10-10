@@ -3,11 +3,13 @@ import { waitForMutation } from '../helpers/basic.js'
 
 const generateMetaMorphData = () => {
     const morphPowersArray = getMorphPowers()
-    const metaMorph = decideIfMetaMorph(morphPowersArray, parseMetaMorph)
-
+    return decideIfMetaMorph(morphPowersArray, parseMetaMorph)
+}
+const createMorphMenu = () => {
+    const metaMorph = generateMetaMorphData()
     console.log(metaMorph)
 }
 
 export const roll20Popout = () => {
-    waitForMutation(document, generateMetaMorphData)
+    waitForMutation(document, createMorphMenu)
 };
