@@ -3,10 +3,6 @@
 	"description": "A Chrome extension used to manage the M&M metamorph power in Roll20",
 	"version": "0.1",
 	"manifest_version": 3,
-	"permissions": [
-		"activeTab",
-		"tabs"
-	],
 	"content_scripts": [
 		{
 			"matches": ["https://*.roll20.net/*"],
