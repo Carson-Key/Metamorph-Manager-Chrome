@@ -19,5 +19,8 @@
 			"matches": [ "https://*.roll20.net/*" ]
 		}
 	],
+	"action": {
+		"default_popup": "src/popup/index.html"
+	},
 	"minimum_chrome_version": "92"
 }
