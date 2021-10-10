@@ -9,5 +9,49 @@
         <header class="w-80 px-4 py-2">
             <h2 class="text-xl font-bold">How to use MetaMorph</h2>
         </header>
+        <main>
+            <p>This extension unfortunatly only works on a popped out chacter sheet and will only change the misc/other field of stats/skills (excluding close combat, expertise, ranged attack, and iniative), currently</p>
+            <p>In order for this extension to work you will need to layout your powers so that the extension knows how to parse it</p>
+            <p>First you will need to have a power for each of your metamorph stat sets</p>
+            <p>In this power the only thing that matters is the description, this extension won't read the title/ranks/ects</p>
+            <p>Make sure that each indivdual power of the set (or power array) is on a new line, this extension will consider each line a seperate stat-increase/power within the set</p>
+            <h6>example:</h6>
+            <p>
+                - Increased Strength 1 (2 pp)<br>
+                - Increased Fighting 1 (2 pp)<br>
+                - Increased Agility 1 (2 pp)<br>
+                - Increased Stamina 1 (2 pp)<br>
+                - Increased Dodge 2 (2 pp)<br>
+                - Increased Fortitude 4 (4 pp)<br>
+                - Increased Toughness 4 (4 pp)<br>
+                - Increased Will 7 (7 pp)<br>
+                - Increased Parry 1 (1 pp)<br>
+                - Increased Treatment 8 (4 pp)<br>
+                - Healing 10 (70 pp)<br>
+                &nbsp;&nbsp;Area (30ft sphere), persistent, restorative, resurrection, and selectie<br>
+            </p>
+            <p>The only words/characters that matter in this description is the word increased (case insensitive), the stat it increases (also case insensitive), and the rank (the value that the state will increase)</p>
+            <p>Make sure that the stat is spelled as it is in roll20, otherwise that stat will not change</p>
+            <p>Also make sure that these three words/numbers are in the exact order above (Increased, then skill, finally value)</p>
+            <p>The final thing you need is an identifier that tells the extension the name and that the popwer is a metamorph skill set</p>
+            <p>This identifier is just "metamorph {Name you want to give that set}", in that order (case insensitive)</p>
+            <h6>example:</h6>
+            <p>
+                - Metamorph Healing<br>
+                - Increased Strength 1 (2 pp)<br>
+                - Increased Fighting 1 (2 pp)<br>
+                - Increased Agility 1 (2 pp)<br>
+                - Increased Stamina 1 (2 pp)<br>
+                - Increased Dodge 2 (2 pp)<br>
+                - Increased Fortitude 4 (4 pp)<br>
+                - Increased Toughness 4 (4 pp)<br>
+                - Increased Will 7 (7 pp)<br>
+                - Increased Parry 1 (1 pp)<br>
+                - Increased Treatment 8 (4 pp)<br>
+                - Healing 10 (70 pp)<br>
+                &nbsp;&nbsp;Area (30ft sphere), persistent, restorative, resurrection, and selectie<br>
+            </p>
+            <p>Once you have all of these things set up </p>
+        </main>
     </body>
 </html>
