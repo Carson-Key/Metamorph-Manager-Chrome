@@ -20,7 +20,7 @@
 		}
 	],
 	"action": {
-		"default_popup": "src/popouts/index.html"
+		"default_popup": "src/popups/index.html"
 	},
 	"minimum_chrome_version": "92"
 }
