@@ -34,6 +34,31 @@ const parseStatIncrease = (morphData) => {
     return statIncreaseData
 }
 
+const changeCharacterSheet = (metaMorphData) => {
+    $(HTMLPARSINGVALUES.changeCharacterSheet.characterSheetQuery)[0].click()
+    const metaMorphDataArray = Object.keys(metaMorphData);
+    metaMorphDataArray.forEach((statName) => {
+        try {
+            if (
+                $(HTMLPARSINGVALUES.changeCharacterSheet.statQuery(STATHTMLNAMES[statName])).val() 
+                !== metaMorphData[statName].toString()
+            ) {
+                $(
+                    HTMLPARSINGVALUES.changeCharacterSheet.statQuery(STATHTMLNAMES[statName])
+                ).click();
+                $(
+                    HTMLPARSINGVALUES.changeCharacterSheet.statQuery(STATHTMLNAMES[statName])
+                ).val(metaMorphData[statName].toString());
+                $(
+                    HTMLPARSINGVALUES.changeCharacterSheet.statQuery(STATHTMLNAMES[statName])
+                ).blur();
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    })
+}
+
 export const decideIfMetaMorph = (morphPowers, parse) => {
     if (morphPowers.length > 0) {
         return parse(morphPowers)
@@ -58,31 +83,6 @@ export const parseMetaMorph = (morphPowersArray) => {
     });
 
     return metaMorph;
-}
-
-export const changeCharacterSheet = (metaMorphData) => {
-    $(HTMLPARSINGVALUES.changeCharacterSheet.characterSheetQuery)[0].click()
-    const metaMorphDataArray = Object.keys(metaMorphData);
-    metaMorphDataArray.forEach((statName) => {
-        try {
-            if (
-                $(HTMLPARSINGVALUES.changeCharacterSheet.statQuery(STATHTMLNAMES[statName])).val() 
-                !== metaMorphData[statName].toString()
-            ) {
-                $(
-                    HTMLPARSINGVALUES.changeCharacterSheet.statQuery(STATHTMLNAMES[statName])
-                ).click();
-                $(
-                    HTMLPARSINGVALUES.changeCharacterSheet.statQuery(STATHTMLNAMES[statName])
-                ).val(metaMorphData[statName].toString());
-                $(
-                    HTMLPARSINGVALUES.changeCharacterSheet.statQuery(STATHTMLNAMES[statName])
-                ).blur();
-            }
-        } catch (error) {
-            console.log(error)
-        }
-    })
 }
 
 export const checkIfCompatibleCharacter = (metaMorphData) => {
