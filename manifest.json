@@ -1,5 +1,5 @@
 {
-	"name": "Metamorph Extension",
+	"name": "Mutants and Masterminds Metamorph Manager",
 	"description": "A Chrome extension used to manage the M&M metamorph power in Roll20",
 	"version": "0.1",
 	"manifest_version": 3,
