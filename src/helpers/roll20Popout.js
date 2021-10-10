@@ -34,24 +34,28 @@ const parseStatIncrease = (morphData) => {
     return statIncreaseData
 }
 
+const changeStat = (statHTMLName, statValue) => {
+    $(
+        HTMLPARSINGVALUES.changeStat.statQuery(statHTMLName)
+    ).click();
+    $(
+        HTMLPARSINGVALUES.changeStat.statQuery(statHTMLName)
+    ).val(statValue);
+    $(
+        HTMLPARSINGVALUES.changeStat.statQuery(statHTMLName)
+    ).blur();
+}
+
 const changeCharacterSheet = (metaMorphData) => {
     $(HTMLPARSINGVALUES.changeCharacterSheet.characterSheetQuery)[0].click()
     const metaMorphDataArray = Object.keys(metaMorphData);
     metaMorphDataArray.forEach((statName) => {
         try {
             if (
-                $(HTMLPARSINGVALUES.changeCharacterSheet.statQuery(STATHTMLNAMES[statName])).val() 
+                $(HTMLPARSINGVALUES.changeStat.statQuery(STATHTMLNAMES[statName])).val() 
                 !== metaMorphData[statName].toString()
             ) {
-                $(
-                    HTMLPARSINGVALUES.changeCharacterSheet.statQuery(STATHTMLNAMES[statName])
-                ).click();
-                $(
-                    HTMLPARSINGVALUES.changeCharacterSheet.statQuery(STATHTMLNAMES[statName])
-                ).val(metaMorphData[statName].toString());
-                $(
-                    HTMLPARSINGVALUES.changeCharacterSheet.statQuery(STATHTMLNAMES[statName])
-                ).blur();
+                changeStat(STATHTMLNAMES[statName], metaMorphData[statName].toString())
             }
         } catch (error) {
             console.log(error)

@@ -74,7 +74,9 @@ export const HTMLPARSINGVALUES = {
     },
     getMetaMorph: "span:contains('Metamorph')",
     changeCharacterSheet: {
-        characterSheetQuery: "a[data-tab='charsheet']",
+        characterSheetQuery: "a[data-tab='charsheet']"
+    },
+    changeStat: {
         statQuery: (statName) => {
             return "input[name*='" + statName + "']"
         }
