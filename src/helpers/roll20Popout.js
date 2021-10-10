@@ -1,5 +1,5 @@
 import { STATLIST, STATHTMLNAMES, HTMLPARSINGVALUES } from './roll20PopoutObjs.js'
-import { convertHTMLCollectionToArray } from './basic.js'
+import { convertHTMLCollectionToArray, overrideContainsCaseInsensitive } from './basic.js'
 
 const getMorphData = (morph) => {
     const splitDesc = morph.innerHTML.split(HTMLPARSINGVALUES.getMorphData.splitDesc)
@@ -84,10 +84,7 @@ export const decideIfMetaMorph = (morphPowers, parse) => {
 }
 
 export const getMorphPowers = () => {
-    jQuery.expr[':'].contains = function(a, i, m) {
-        return jQuery(a).text().toLowerCase()
-            .indexOf(m[3].toLowerCase()) >= 0;
-    };
+    overrideContainsCaseInsensitive();
     return convertHTMLCollectionToArray($(HTMLPARSINGVALUES.getMetaMorph))
 }
 

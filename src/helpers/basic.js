@@ -27,3 +27,9 @@ export const waitForMutation = (htmlObject, functionOnMutation) => {
 
     timeoutMutationObserver(observer, neverLoaded);
 }
+export const overrideContainsCaseInsensitive = () => {
+    jQuery.expr[':'].contains = function(a, i, m) {
+        return jQuery(a).text().toLowerCase()
+            .indexOf(m[3].toLowerCase()) >= 0;
+    };
+}
