@@ -54,3 +54,25 @@ export const STATHTMLNAMES = {
     treatment: "attr_Treatment-other",
     vehicles: "attr_Vehicles-other"
 }
+export const HTMLPARSINGVALUES = {
+    getMorphData: {
+        splitDesc: "\n",
+        morphName: {
+            value: " ",
+            index: 2
+        },
+        statBoostsFilter: 'Increased',
+    },
+    getStatIncreaseData: {
+        split: " ",
+        nameIndex: 2,
+        valueIndex: 3
+    },
+    getMetaMorph: "span:contains('Metamorph')",
+    changeCharacterSheet: {
+        characterSheetQuery: "a[data-tab='charsheet']",
+        statQuery: (statName) => {
+            return "input[name*='" + statName + "']"
+        }
+    }
+}

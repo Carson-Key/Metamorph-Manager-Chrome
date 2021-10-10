@@ -1,10 +1,14 @@
-import { STATLIST, STATHTMLNAMES } from './roll20PopoutObjs.js'
+import { STATLIST, STATHTMLNAMES, HTMLPARSINGVALUES } from './roll20PopoutObjs.js'
 import { convertHTMLCollectionToArray } from './basic.js'
 
 const getMorphData = (morph) => {
-    const splitDesc = morph.innerHTML.split("\n")
-    const morphName = splitDesc[0].split(" ")[2]
-    const statBoosts = splitDesc.filter(line => line.includes('Increased'))
+    const splitDesc = morph.innerHTML.split(HTMLPARSINGVALUES.getMorphData.splitDesc)
+    const morphName = splitDesc[0].split(
+        HTMLPARSINGVALUES.getMorphData.morphName.value
+    )[HTMLPARSINGVALUES.getMorphData.morphName.index]
+    const statBoosts = splitDesc.filter(line => line.includes(
+        HTMLPARSINGVALUES.getMorphData.statBoostsFilter
+    ))
 
     return {
         name: morphName.toLowerCase(),
@@ -12,9 +16,13 @@ const getMorphData = (morph) => {
     }
 }
 const getStatIncreaseData = (statIncreaseLine, statIncreaseData) => {
-    const statIncreaseArray = statIncreaseLine.split(" ")
+    const statIncreaseArray = statIncreaseLine.split(HTMLPARSINGVALUES.getStatIncreaseData.split)
 
-    statIncreaseData[statIncreaseArray[2].toLowerCase()] = parseInt(statIncreaseArray[3])
+    statIncreaseData[
+        statIncreaseArray[HTMLPARSINGVALUES.getStatIncreaseData.nameIndex
+    ].toLowerCase()] = parseInt(
+        statIncreaseArray[HTMLPARSINGVALUES.getStatIncreaseData.valueIndex]
+    )
 }
 const parseStatIncrease = (morphData) => {
     let statIncreaseData = {...STATLIST}
@@ -35,7 +43,7 @@ export const decideIfMetaMorph = (morphPowers, parse) => {
 }
 
 export const getMorphPowers = () => {
-    return convertHTMLCollectionToArray($("span:contains('Metamorph')"))
+    return convertHTMLCollectionToArray($(HTMLPARSINGVALUES.getMetaMorph))
 }
 
 export const parseMetaMorph = (morphPowersArray) => {
@@ -52,14 +60,23 @@ export const parseMetaMorph = (morphPowersArray) => {
 }
 
 export const changeCharacterSheet = (metaMorphData) => {
-    $("a[data-tab='charsheet']")[0].click()
+    $(HTMLPARSINGVALUES.changeCharacterSheet.characterSheetQuery)[0].click()
     const metaMorphDataArray = Object.keys(metaMorphData);
     metaMorphDataArray.forEach((statName) => {
         try {
-            if ($("input[name*='" + STATHTMLNAMES[statName] + "']").val() !== metaMorphData[statName].toString()) {
-                $("input[name*='" + STATHTMLNAMES[statName] + "']").click();
-                $("input[name*='" + STATHTMLNAMES[statName] + "']").val(metaMorphData[statName].toString());
-                $("input[name*='" + STATHTMLNAMES[statName] + "']").blur();
+            if (
+                $(HTMLPARSINGVALUES.changeCharacterSheet.statQuery(STATHTMLNAMES[statName])).val() 
+                !== metaMorphData[statName].toString()
+            ) {
+                $(
+                    HTMLPARSINGVALUES.changeCharacterSheet.statQuery(STATHTMLNAMES[statName])
+                ).click();
+                $(
+                    HTMLPARSINGVALUES.changeCharacterSheet.statQuery(STATHTMLNAMES[statName])
+                ).val(metaMorphData[statName].toString());
+                $(
+                    HTMLPARSINGVALUES.changeCharacterSheet.statQuery(STATHTMLNAMES[statName])
+                ).blur();
             }
         } catch (error) {
             console.log(error)
