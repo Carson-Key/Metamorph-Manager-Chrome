@@ -6,8 +6,20 @@ const generateMetaMorphData = () => {
     return decideIfMetaMorph(morphPowersArray, parseMetaMorph)
 }
 const createMorphMenu = () => {
-    const metaMorph = generateMetaMorphData()
-    console.log(metaMorph)
+    const metaMorphData = generateMetaMorphData()
+
+    let tabMenu = document.getElementsByClassName("menu")[0];
+    let button = document.createElement('button');
+    button.innerHTML = "|";
+    button.disabled = true;
+    tabMenu.appendChild(button);
+
+    const metaMorphDataArray = Object.keys(metaMorphData);
+    metaMorphDataArray.forEach((metaMorph) => {
+        let button = document.createElement('button');
+        button.innerHTML = metaMorph;
+        tabMenu.appendChild(button);
+    })
 }
 
 export const roll20Popout = () => {
