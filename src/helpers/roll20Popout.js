@@ -29,6 +29,34 @@ const STATLIST = {
     treatment: 0,
     vehicles: 0
 }
+const STATHTMLNAMES = {
+    strength: "attr_strength-misc",
+    agility: "attr_agility-misc",
+    fighting:"attr_fighting-misc",
+    awareness: "attr_awareness-misc",
+    stamina: "attr_stamina-misc",
+    dexterity: "attr_dexterity-misc",
+    intellect: "attr_intellect-misc",
+    presence: "attr_presence-misc",
+    dodge: "attr_dodge-misc",
+    parry: "attr_parry-misc",
+    fortitude: "attr_fortitude-misc",
+    toughness: "attr_toughness-misc",
+    will: "attr_will-misc",
+    acrobatics: "attr_Acrobatics-other",
+    athletics: "attr_Athletics-other",
+    deception: "attr_Deception-other",
+    insight: "attr_Insight-other",
+    intimidation: "attr_Intimidation-other",
+    investigation: "attr_Investigation-other",
+    perception: "attr_Perception-other",
+    persuasion: "attr_Persuasion-other",
+    sleightOfHand: "attr_Sleight-of-hand-other",
+    stealth: "attr_Stealth-other",
+    technology: "attr_Technology-other",
+    treatment: "attr_Treatment-other",
+    vehicles: "attr_Vehicles-other"
+}
 
 const getMorphData = (morph) => {
     const splitDesc = morph.innerHTML.split("\n")
@@ -85,9 +113,9 @@ export const changeCharacterSheet = (metaMorphData) => {
     const metaMorphDataArray = Object.keys(metaMorphData);
     metaMorphDataArray.forEach((statName) => {
         try {
-            $("input[name*='attr_" + statName + "-misc']").click();
-            $("input[name*='" + statName + "-misc']").val(metaMorphData[statName]);
-            $("input[name*='" + statName + "-misc']").blur();
+            $("input[name*='" + STATHTMLNAMES[statName] + "']").click();
+            $("input[name*='" + STATHTMLNAMES[statName] + "']").val(metaMorphData[statName]);
+            $("input[name*='" + STATHTMLNAMES[statName] + "']").blur();
         } catch (error) {
             console.log(error)
         }
