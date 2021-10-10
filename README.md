@@ -3,7 +3,7 @@
     **Disclaimer: This is a personal project and never went through rigorous testing, therefor there will be issues and bugs. I am sorry for anything this may cause if you use my extension**
 
 ## How to install
-    This extension is availible on the chrome extension store, but feel free to download/fork and play with the source code to have a more personalized experience!
+    This extension will be availible on the chrome extension store at some point, but feel free to download/fork and play with the source code to have a more personalized experience!
 
     1. Download Zip through github (Which is in the upper right dropdown button that says "Code")
     2. Go to your Chrome Extension managing page, link: [chrome://extensions/](chrome://extensions/)
