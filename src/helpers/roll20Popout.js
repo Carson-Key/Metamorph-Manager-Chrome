@@ -92,3 +92,11 @@ export const checkIfCompatibleCharacter = (metaMorphData) => {
         return false
     }
 }
+
+export const createDividerButton = () => {
+    let tabMenu = document.getElementsByClassName("menu")[0];
+    let button = document.createElement('button');
+    button.innerHTML = "|";
+    button.disabled = true;
+    tabMenu.appendChild(button);
+}
