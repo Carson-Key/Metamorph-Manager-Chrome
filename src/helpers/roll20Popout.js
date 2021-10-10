@@ -56,9 +56,11 @@ export const changeCharacterSheet = (metaMorphData) => {
     const metaMorphDataArray = Object.keys(metaMorphData);
     metaMorphDataArray.forEach((statName) => {
         try {
-            $("input[name*='" + STATHTMLNAMES[statName] + "']").click();
-            $("input[name*='" + STATHTMLNAMES[statName] + "']").val(metaMorphData[statName].toString());
-            $("input[name*='" + STATHTMLNAMES[statName] + "']").blur();
+            if ($("input[name*='" + STATHTMLNAMES[statName] + "']").val() !== metaMorphData[statName].toString()) {
+                $("input[name*='" + STATHTMLNAMES[statName] + "']").click();
+                $("input[name*='" + STATHTMLNAMES[statName] + "']").val(metaMorphData[statName].toString());
+                $("input[name*='" + STATHTMLNAMES[statName] + "']").blur();
+            }
         } catch (error) {
             console.log(error)
         }
